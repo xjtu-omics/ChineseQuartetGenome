@@ -39,6 +39,10 @@ Haplotype-resolved assemblies and variant benchmarks of Chinese Quartet are avai
 
 ## Contributions 
 
+* We encourage software developers to benchmark their software using our data.
+* We encourage the community to submit their assemblies and variant to improve the assemblies and variant benchmarks. 
+
+
 
 ## Contact
 
