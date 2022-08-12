@@ -1,14 +1,46 @@
-# Chinese Quartet 
+# Chinese Quartet Genome
 
-The Chinese Quartet is a family from Taizhou cohort, which is approved as standard reference materials by the [National Institute of Metrology in China](https://en.nim.ac.cn/). For more information of the standdard reference materials, please click [here](http://chinese-quartet.org/). 
-The Quartet multi-omics reference materials and data are publicly available and accessible. The recipients of the Reference Materials are highly encouraged to share their data with the community in order for to improve the evaluation of the techonologies, pipilines, batch effects, and so on.
+The [Chinese Quartet Project](http://chinese-quartet.org/) is designed for quality control in biological analysis in China. The samples 
+in this project have been approved as standard reference materials by 
+the [State Administration for Market Regulation in China](https://www.samr.gov.cn/). In this repository,
+we provided high-quality genome and variant benchmarks for this quartet.
 
 ## Samples 
+There are four samples in Chinse Quartet, including father (LCL7), mother (LCL8), and two monozygotic 
+twin daughters (LCL5 and LCL6). This quartet family is from Taizhou in China. For more information of the quartet, 
+please click [here](http://chinese-quartet.org/). 
 
-There are four samples in Chinse Quartet, inluding father (LCL7), mother (LCL8), and two monozygotic twin daughters (LCL5 and LCL6).
+
+
+
 
 ## Data information
-We have sequenced the with a number of technologies. The data includes 50x PacBio HiFi, 100x coverage of Oxford Nanopore, 30x coverage of ultra long Oxford Nanopore (only for LCL5), 100x PacBio CLR, 100x 10x genomics linked reads and BioNano. All raw data is available from [NODE](lll).
+The Quartet multi-omics reference materials and data are publicly available and accessible. 
+The recipients of the Reference Materials are highly encouraged to share their data with the 
+community in order for to improve the evaluation of the technologies, pipelines, batch effects, and so on.
+
+For genomic data, we generated 50x PacBio HiFi, 100x coverage of Oxford Nanopore, 30x coverage of ultra 
+long Oxford Nanopore (only for LCL5), 100x PacBio CLR, 100x 10x genomics linked reads and BioNano. 
+All raw data is available from public, if you want to use genomic data in this study, please fell free to contact with us.
+## Assembly 
+* Data from two monozygotic twin daughters were merged for assembly.
+* Long reads were phased into two haplotypes with heterozygous mutations.
+* HiFi reads were assembled with hifiasm, hicanu, and flye.
+* ONT reads were assembled with flye and shasta.
+* Pipeline for assembly is available at  https://github.com/PengJia6/AssmPipe.
+
+## Variant Benchmarks
+* Methods for variant establishing is available at  https://github.com/PengJia6/AssmPipe.
+* Variants are discovery with Illumina reads, HiFi reads, and haplotyped-resolved assemblies.
+* Varaints are filtered with read depth, allele depth, Mendelian rules.
 
 ## Availability
 Haplotype-resolved assemblies and variant benchmarks of Chinese Quartet are available at [here](https://stuxjtueducn-my.sharepoint.com/:f:/g/personal/pengjia_stu_xjtu_edu_cn/Eqc2HjImbKFHiJHluAbLH68Bm6wzmY25v48y3kjVg5iRvg?e=g784Aw).
+
+## Contributions 
+
+
+## Contact
+
+* Kai Ye (kaiye@xjtu.edu.cn)
+* Peng Jia (pengjia@stu.xjtu.edu.cn)
