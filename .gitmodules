@@ -1,0 +1,3 @@
+[submodule "pipelines/TGSGermlineMutPipe"]
+	path = pipelines/TGSGermlineMutPipe
+	url = https://github.com/PengJia6/TGSGermlineMutPipe.git
