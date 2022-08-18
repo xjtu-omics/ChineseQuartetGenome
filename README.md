@@ -21,6 +21,7 @@ For genomic data, we generated 50x PacBio HiFi, 100x coverage of Oxford Nanopore
 long Oxford Nanopore (only for LCL5), 100x PacBio CLR, 100x 10x genomics linked reads and BioNano. 
 All raw data is available from public, if you want to use genomic data in this study, please fell free to contact with us.
 ## Assembly 
+* Details are available at [github](/docs/assm_stat.md)
 * Data from two monozygotic twin daughters were merged for assembly.
 * Long reads were phased into two haplotypes with heterozygous mutations.
 * HiFi reads were assembled with hifiasm, hicanu, and flye.
