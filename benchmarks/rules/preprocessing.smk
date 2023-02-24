@@ -9,6 +9,8 @@
 import logging as pylogging
 import os.path
 
+import pysam
+
 pylogging.basicConfig(level=pylogging.ERROR)
 import pandas as pd
 # logging.setLevel(logging.DEBUG)
@@ -137,7 +139,8 @@ rule get_query_vcf_in_this_regions:
         vcf=dir_work + "results/{ref}.{sample}.{var_type}.{method}.{region}/{ref}.{sample}.{var_type}.{method}.{region}.vcf.gz"
     threads: config["threads"]["default"]
     run:
-        ""
+        vcf=pysam.VariantFile()
+        chrom
 
 
 rule tabix:
