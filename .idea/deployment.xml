@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="pengjia@10.181.7.169:65533 password" remoteFilesAllowedToDisappearOnAutoupload="false" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ihabor" remoteFilesAllowedToDisappearOnAutoupload="false" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="pengjia@10.181.7.169:65533 password">
+      <paths name="ihabor">
         <serverdata>
           <mappings>
-            <mapping deploy="/data/home/pengjia/ChineseQuartetGenome" local="$PROJECT_DIR$" />
+            <mapping deploy="/data/home/pengjia/ChineseQuartetGenome" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

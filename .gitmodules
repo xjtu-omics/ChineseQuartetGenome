@@ -10,3 +10,4 @@
 [submodule "pipelines/NGSGermlineMutPipe"]
 	path = pipelines/NGSGermlineMutPipe
 	url = https://github.com/PengJia6/NGSGemlineMutPipe
+
