@@ -1,8 +1,13 @@
-# Quick start
+# Pipeline for variant benchmarking of Chinese Quartet. 
+We develop a pipeline for benchmarking of variants in the genomes of 
+Chinese Quartet, enabling evaluation of the performance of 
+different sequencing technologies, variant calling algorithms, and pipelines.
 
-## Run with snakemake
+## Quick start
 
-### 1. Prepare you environment
+### Run with snakemake
+
+#### 1. Prepare you environment
 
 The following software/packages are required in same environment: 
   * python
@@ -11,9 +16,12 @@ The following software/packages are required in same environment:
   * numpy 
   * pandas 
 
-You can use conda to install all of these packages. 
+You can use conda to install all of these packages, for example:   
 
-You also need to install the following software and  
+   ```shell
+    conda install package-name 
+   ```
+You also need to install the following software:
   * bedtools 
   * bcftools 
   * tabix 
@@ -21,20 +29,23 @@ You also need to install the following software and
   * [hap.py](https://github.com/Illumina/hap.py) (for small variants benchmarking)
   * [truvari](https://github.com/ACEnglish/truvari) (for structural variants benchmarking)
 
-### 2. Prepare the benchmark regions and variants
-
-### 3. Config you task
-
-### 4. Run the pipeline
-
-### 5. Check the result
+#### 2. Prepare the benchmark regions and variants
+* download the latest version of variants and benchmark regions of Chinese Quartet according to the [instruction.](../) 
 
 
 
-## Run with docker
+#### 3. Config you task
+
+#### 4. Run the pipeline
+
+#### 5. Check the result
 
 
-# Known and Likely Limitations of this version
+
+### Run with docker
+
+
+## Known and Likely Limitations of this version
 
 * For assemblies:
     * 20 original gaps in hifiasm assembly have abnormal read depths.
