@@ -1,10 +1,10 @@
 # ======================================================================================================================
 # Project: ChinseQuartetGenome
-# Script : Snakefile TODO check
+# Script : Snakefile
 # Author : Peng Jia
 # Date   :  2023/2/18
 # Email  : pengjia@stu.xjtu.edu.cn
-# Description: TODO
+# Description: Snakemake file for ChineseQuartet variant benchmark application 
 # ======================================================================================================================
 configfile: "conf/config.yaml"
 include: "rules/preprocessing.smk"

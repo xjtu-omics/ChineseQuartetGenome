@@ -1,10 +1,10 @@
 # ======================================================================================================================
 # Project: ChinseQuartetGenome
-# Script : preprocessing.smk TODO check 
+# Script : preprocessing.smk
 # Author : Peng Jia
 # Date   :  2023/2/21
 # Email  : pengjia@stu.xjtu.edu.cn
-# Description: TODO
+# Description: command rules and scripts of the pipeline
 # ======================================================================================================================
 import os.path
 import numpy as np

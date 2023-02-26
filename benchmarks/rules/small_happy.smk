@@ -1,10 +1,10 @@
 # ======================================================================================================================
 # Project: ChinseQuartetGenome
-# Script : small_happy.smk TODO check
+# Script : small_happy.smk
 # Author : Peng Jia
 # Date   :  2023/2/23
 # Email  : pengjia@stu.xjtu.edu.cn
-# Description: Calculate the performance of Small varaint detection with hap.py
+# Description: Calculate the performance of Small variant detection with hap.py
 # ======================================================================================================================
 import os.path
 
