@@ -6,13 +6,11 @@
 # Email  : pengjia@stu.xjtu.edu.cn
 # Description: TODO
 # ======================================================================================================================
-import logging as pylogging
 import os.path
-
+import numpy as np
 import pysam
-
-pylogging.basicConfig(level=pylogging.ERROR)
 import pandas as pd
+
 # logging.setLevel(logging.DEBUG)
 bedtools = config["software"]["bedtools"] if "bedtools" in config["software"] else "bedtools"
 tabix = config["software"]["tabix"] if "tabix" in config["software"] else "tabix"
@@ -23,6 +21,8 @@ truvari = config["software"]["truvari"] if "truvari" in config["software"] else 
 dir_work = config["dir_work"] if "dir_work" in config else os.path.abspath("./ChineseQuartet_benchmarks")
 dir_work = dir_work if dir_work[-1] == "/" else dir_work + "/"
 sample_info_data = pd.read_table(config["samples"])
+paras = config["paras"]
+run_name = config["run_name"] if "run_name" in config else "test"
 sample_infos = {}
 benchmark_prefix_ids = []
 samples_ids = []
@@ -48,17 +48,17 @@ for vcf_id, info in sample_info_data.iterrows():
 
     this_regions = []
     if info["reference_version"] not in config["variants"]:
-        pylogging.error(f"No match variant was provided for this version of reference ({info['reference_version']}), please check your config files")
+        print(f"Error: No match variant was provided for this version of reference ({info['reference_version']}), please check your config files")
         exit()
     if info["var_type"] not in config["variants"][info["reference_version"]]:
-        pylogging.error(f"No match variant was provided for this varaint type ({info['var_type']}), please check your config files")
+        print(f"Error: No match variant was provided for this varaint type ({info['var_type']}), please check your config files")
         exit()
     if info["reference_version"] not in config["regions"]:
-        pylogging.warn(f"No match benchmarking region was provided for this version of reference ({info['reference_version']}), please check your config files."
-                     f"Now, all variants on the whole genomes will be evaluated!")
+        print(f"Warn: No match benchmarking region was provided for this version of reference ({info['reference_version']}), please check your config files."
+              f"Now, all variants on the whole genomes will be evaluated!")
     else:
-        if "benchmark_regions" not in info["reference_version"]:
-            pylogging.warn(f"No benchmark regions was provided for this version of reference ({info['reference_version']}), please check your config files")
+        # if "benchmark_regions" not in config["regions"][info["reference_version"]]:
+        #     print(f"Warn: No benchmark regions was provided for this version of reference ({info['reference_version']}), please check your config files")
 
         for r in config["regions"][info["reference_version"]]:
             regions_ids.append(r)
@@ -76,7 +76,7 @@ for vcf_id, info in sample_info_data.iterrows():
 
     this_version_id = f"{info['method']}"
     if this_version_id in sample_infos[info["reference_version"]][info["sample_id"]][info["var_type"]]:
-        pylogging.error(f"There are same version of input file: {this_version_id}, please check you input file!")
+        print(f"Warn: There are same version of input file: {this_version_id}, please check you input file!")
         exit()
     else:
         sample_infos[info["reference_version"]][info["sample_id"]][info["var_type"]][this_version_id] = info["path_vcf"]
@@ -124,23 +124,73 @@ rule get_vcf_in_this_regions:
         vcf=dir_work + "benchmarks_file/{ref}.{region}.{region}.{var_type}.vcf.gz"
     threads: config["threads"]["default"]
     run:
-        ""
+        if wildcards.var_type in ["DEL", "INS", "CSV", "INV"]:
+            overlap_ratio = float(paras["SV_overlap_ratio"])
+        else:
+            overlap_ratio = float(paras["Small_overlap_ratio"])
+        vcf = pysam.VariantFile(f"{input.vcf}")
+        chroms_lens = {i: vcf.header.contigs[i].length for i in vcf.header.contigs.keys()}
+        anno_pots_bn = {i: np.zeros(j) for i, j in chroms_lens.items()}
+        for line in open(f"{input.bed}"):
+            chrom, start, end = line[:-1].split("\t")[:3]
+            if chrom not in anno_pots_bn: continue
+            start, end = int(start), int(end)
+            anno_pots_bn[chrom][start:end + 1] = 1
+        vcf_new = pysam.VariantFile(f"{output}",mode="w",header=vcf.header)
+        for rec in vcf.fetch():
+            if rec.contig not in anno_pots_bn: continue
+            if anno_pots_bn[rec.contig][rec.pos:rec.stop + 1].mean() >= overlap_ratio:
+                vcf_new.write(rec)
+        vcf.close()
+        vcf_new.close()
 
 
-def get_benchmark_vcf_query(wildcards):
-    return config["variants"][wildcards.ref][wildcards.var_type]
+def get_query_vcf_input(wildcards):
+    return sample_infos[wildcards.ref][wildcards.sample][wildcards.var_type][wildcards.method]
+
+
+# config["variants"][wildcards.ref][wildcards.var_type]
 
 
 rule get_query_vcf_in_this_regions:
     input:
         bed=dir_work + "benchmarks_file/{ref}.{region}.bed",
-        vcf=get_benchmark_vcf_input
+        vcf=get_query_vcf_input,
+    # vcf_idx=get_benchmark_vcf_input+".tbi"
     output:
         vcf=dir_work + "results/{ref}.{sample}.{var_type}.{method}.{region}/{ref}.{sample}.{var_type}.{method}.{region}.vcf.gz"
     threads: config["threads"]["default"]
     run:
-        vcf=pysam.VariantFile()
-        chrom
+        if wildcards.var_type in ["DEL", "INS", "CSV", "INV"]:
+            overlap_ratio = float(paras["SV_overlap_ratio"])
+        else:
+            overlap_ratio = float(paras["Small_overlap_ratio"])
+        vcf = pysam.VariantFile(f"{input.vcf}")
+        chroms_lens = {i: vcf.header.contigs[i].length for i in vcf.header.contigs.keys()}
+        anno_pots_bn = {i: np.zeros(j) for i, j in chroms_lens.items()}
+        for line in open(f"{input.bed}"):
+            chrom, start, end = line[:-1].split("\t")[:3]
+            if chrom not in anno_pots_bn: continue
+            start, end = int(start), int(end)
+            anno_pots_bn[chrom][start:end + 1] = 1
+        vcf_new = pysam.VariantFile(f"{output}",mode="w",header=vcf.header)
+        for rec in vcf.fetch():
+            if rec.contig not in anno_pots_bn: continue
+            if anno_pots_bn[rec.contig][rec.pos:rec.stop + 1].mean() >= overlap_ratio:
+                vcf_new.write(rec)
+        vcf.close()
+        vcf_new.close()
+
+rule merge_all_res:
+    input:
+        targets=expand(dir_work + "results/{prefix}.metric.csv",prefix=benchmark_prefix_ids)
+    output:
+        dir_work + run_name + ".metric.csv"
+    run:
+        data = pd.DataFrame()
+        for item in input.targets:
+            data = pd.concat([data, pd.read_csv(f"{item}",index_col=0)])
+        data.to_csv(f"{output}")
 
 
 rule tabix:

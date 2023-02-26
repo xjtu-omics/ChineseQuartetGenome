@@ -1,5 +1,6 @@
-dir_work: "/data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/output_test/"
-samples: "conf/samples.tsv"
+run_name: tech_specific
+dir_work: "/data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/output_test_tech_specific/"
+samples: "/data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/tech_specifc.sample_info.tsv"
 
 paras:
   SV_overlap_ratio: 0.8
@@ -14,6 +15,10 @@ software:
   "hap_eval": "/data/home/pengjia/miniconda3/envs/happy/bin/hap.py"
   "truvari": "/data/home/pengjia/miniconda3/envs/truvari/bin/truvari"
 
+
+ref:
+  GRCh38:
+    fa: "/data/DATA/Reference/human/GRCh38.p13/GRCh38.p13.genome.fa"
 
 regions:
   GRCh38:

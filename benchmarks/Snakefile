@@ -1,6 +1,6 @@
 # ======================================================================================================================
 # Project: ChinseQuartetGenome
-# Script : Snakefile.smk TODO check 
+# Script : Snakefile TODO check
 # Author : Peng Jia
 # Date   :  2023/2/18
 # Email  : pengjia@stu.xjtu.edu.cn
@@ -9,12 +9,12 @@
 configfile: "conf/config.yaml"
 include: "rules/preprocessing.smk"
 include: "rules/SV_truvari.smk"
+include: "rules/small_happy.smk"
 
-
-targets = expand(dir_work + "results/{prefix}",prefix=benchmark_prefix_ids[0])
+# targets = expand(dir_work + "results/{prefix}.metric.csv",prefix=benchmark_prefix_ids[-1])
 
 # targets=expand(dir_work + "benchmarks/{ref}/{ref}.{region}_{base_region}.bed",ref="GRCh38",region=["SD","RM","SR","VNTR","STR"],base_region=[])
 
 rule target:
     input:
-        targets
+        dir_work + run_name + ".metric.csv"

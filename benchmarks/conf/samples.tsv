@@ -1,3 +1,2 @@
 sample_id	method	var_type	reference_version	path_vcf
-ChineseQuartet_LCL5	ILM_XJTU	DEL	GRCh38	/data/home/pengjia/Project_Human_DATA/ChineseQuartet/ref_based_analysis/comparation2/compareFDU/LCL5.XJTU.DEL.vcf
-ChineseQuartet_LCL5	ILM_FDU	DEL	GRCh38	/data/home/pengjia/Project_Human_DATA/ChineseQuartet/ref_based_analysis/comparation2/compareFDU/LCL5.FDU.DEL.addID.vcf
+ChineseQuartet_LCL5	ILM_FDU	Indel	GRCh38	/data/home/pengjia/Project_Human_DATA/ChineseQuartet/ref_based_analysis/comparation2_20230222/compareFDU/LCL5.FDU.Indel.addID.vcf

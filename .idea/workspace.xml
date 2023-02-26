@@ -4,24 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35a5b4bf-2d71-4c6d-ac0c-8d9c4ab62ef9" name="Changes" comment="update assemble pipeline">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/Snakefile.smk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/conf/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/conf/samples.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/conf/samples.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/regions/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/rules/SV.benchmark.smk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/rules/SV_truvari.smk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/rules/Small.benchmark.smk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmarks/rules/preprocessing.smk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipelines/prepare_regions/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipelines/prepare_regions/prepare_regions.smk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+    <list default="true" id="35a5b4bf-2d71-4c6d-ac0c-8d9c4ab62ef9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/benchmarks/rules/small_happy.smk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/benchmarks/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/Snakefile.smk" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/Snakefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/conf/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/conf/samples.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/conf/samples.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/conf/samples.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/regions/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/rules/SV.benchmark.smk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/rules/SV_truvari.smk" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/rules/SV_truvari.smk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/rules/Small.benchmark.smk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmarks/rules/preprocessing.smk" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks/rules/preprocessing.smk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pipelines/prepare_regions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/benchmarks/rules" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -72,8 +67,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\ChinseQuartetGenome\pipelines\prepare_regions" />
       <recent name="D:\Project\ChinseQuartetGenome\benchmarks\rules" />
+      <recent name="D:\Project\ChinseQuartetGenome\pipelines\prepare_regions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\ChinseQuartetGenome\pipelines\prepare_regions" />
@@ -145,7 +140,7 @@
       <workItem from="1671852443626" duration="11106000" />
       <workItem from="1672990728268" duration="567000" />
       <workItem from="1676510426373" duration="8872000" />
-      <workItem from="1676942606707" duration="58744000" />
+      <workItem from="1676942606707" duration="83330000" />
     </task>
     <task id="LOCAL-00001" summary="update assemble pipeline">
       <created>1671886207966</created>
@@ -168,15 +163,22 @@
       <option name="project" value="LOCAL" />
       <updated>1676510717472</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update assemble pipeline">
+      <created>1677219804592</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677219804592</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update assemble pipeline" />
     <MESSAGE value="update benchmark" />
-    <option name="LAST_COMMIT_MESSAGE" value="update benchmark" />
+    <MESSAGE value="update assemble pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="update assemble pipeline" />
   </component>
 </project>
