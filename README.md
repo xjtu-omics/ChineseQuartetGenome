@@ -37,6 +37,8 @@ All raw data is available from public, if you want to use genomic data in this s
 ## Availability
 Haplotype-resolved assemblies and variant benchmarks of Chinese Quartet are available at [OneDrive](https://stuxjtueducn-my.sharepoint.com/:f:/g/personal/pengjia_stu_xjtu_edu_cn/Eqc2HjImbKFHiJHluAbLH68Bm6wzmY25v48y3kjVg5iRvg?e=g784Aw).
 
+## Usage of variant benchmarks
+If you want to use the variant benchmarks, please click [here](/benchmarks) to check the pipeline we provided.
 ## Citation
   Jia P, Dong L, Yang X, Wang B, Wang T, Lin J, Wang S, Zhao X, Xu T, Che Y, et al: Haplotype-resolved assemblies and variant benchmark of a Chinese Quartet. bioRxiv 2022:2022.2009.2008.504083. [PDF](https://www.biorxiv.org/content/10.1101/2022.09.08.504083v1.full.pdf)
 
