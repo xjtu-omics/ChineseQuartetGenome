@@ -30,7 +30,7 @@ You also need to install the following software:
   * [truvari](https://github.com/ACEnglish/truvari) (for structural variants benchmarking)
 
 #### 2. Prepare the benchmark regions and variants
-* download the latest version of variants and benchmark regions of Chinese Quartet according to the [instruction.](../) 
+* download the latest version of variants and benchmark regions of Chinese Quartet according to the [instruction.](https://github.com/xjtu-omics/ChineseQuartetGenome#variant-benchmarks) 
 
 
 
