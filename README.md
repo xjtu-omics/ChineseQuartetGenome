@@ -1,14 +1,10 @@
 # Chinese Quartet Genome
 
-The [Chinese Quartet Project](http://chinese-quartet.org/) is designed for quality control in biological analysis in China. The samples 
+The [Quartet Project](http://chinese-quartet.org/) is designed for quality control in biological analysis in China. The samples 
 in this project have been approved as standard reference materials by 
 the [State Administration for Market Regulation in China](https://www.samr.gov.cn/). In this repository,
 we provided high-quality genome and variant benchmarks for this quartet.
 
-## How to use the benchmark
-   We develop a [pipeline](/benchmarks/README.md) for benchmarking of variants in the genomes of 
-Chinese Quartet, enabling evaluation of the performance of 
-different sequencing technologies, variant calling algorithms, and pipelines. 
 
 ## Samples 
 There are four samples in Chinse Quartet, including father (LCL7), mother (LCL8), and two monozygotic 
@@ -27,21 +23,24 @@ long Oxford Nanopore (only for LCL5), 100x PacBio CLR, 100x 10x genomics linked 
 All raw data is available from public, if you want to use genomic data in this study, please download it from 
 [The Quartet Data Portal](https://chinese-quartet.org/#/data/download/quartet-genomics).
 ## Assembly 
-* Details are available at [github](/docs/assm_stat.md)
+* The assemblies ([paternal](https://ngdc.cncb.ac.cn/gwh/Assembly/29340/show) and [maternal](https://ngdc.cncb.ac.cn/gwh/Assembly/29339/show)) of the twins are available at [Genome Warehouse](https://ngdc.cncb.ac.cn/gwh/). 
+* Details of the assemblies are available at [github](/docs/assm_stat.md)
 * Data from two monozygotic twin daughters were merged for assembly.
 * Long reads were phased into two haplotypes with heterozygous mutations.
 * HiFi reads were assembled with hifiasm, hicanu, and flye.
 * ONT reads were assembled with flye and shasta.
 * Pipeline for assembly is available at https://github.com/PengJia6/AssmPipe.
 * Pipeline for assembly evaluation is available at https://github.com/PengJia6/Postassm
+* Regions 
 
 ## Variant Benchmarks
 * Variants are discovery with Illumina reads, HiFi reads, and haplotyped-resolved assemblies.
 * Varaints are filtered with read depth, allele depth, Mendelian rules.
 * Methods for variant establishing is available at https://github.com/PengJia6/NGSGemlineMutPipe and https://github.com/PengJia6/TGSGermlineMutPipe
 
-## Availability
-Haplotype-resolved assemblies and variant benchmarks of Chinese Quartet are available at [OneDrive](https://stuxjtueducn-my.sharepoint.com/:f:/g/personal/pengjia_stu_xjtu_edu_cn/Eqc2HjImbKFHiJHluAbLH68Bm6wzmY25v48y3kjVg5iRvg?e=g784Aw).
+[comment]: <> (## Availability)
+
+[comment]: <> (Haplotype-resolved assemblies and variant benchmarks of Chinese Quartet are available at [OneDrive]&#40;https://stuxjtueducn-my.sharepoint.com/:f:/g/personal/pengjia_stu_xjtu_edu_cn/Eqc2HjImbKFHiJHluAbLH68Bm6wzmY25v48y3kjVg5iRvg?e=g784Aw&#41;.)
 
 ## Usage of variant benchmarks
 If you want to use the variant benchmarks, please click [here](/benchmarks) to check the pipeline we provided.
