@@ -1,0 +1,76 @@
+run_name: InitialCall_raw
+dir_work: "/data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/InitialCall_raw/"
+samples: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/ChineseQuartet.Initial.raw.sample_info.tsv
+
+paras:
+  SV_overlap_ratio: 0.8
+  Small_overlap_ratio: 1
+
+
+
+software:
+  "tabix": "/data/home/pengjia/miniconda3/envs/default/bin/tabix"
+  "bgzip": "/data/home/pengjia/miniconda3/envs/default/bin/bgzip"
+  "gzip": "gzip"
+  "hap_eval": "/data/home/pengjia/miniconda3/envs/happy/bin/hap.py"
+  "truvari": "/data/home/pengjia/miniconda3/envs/truvari/bin/truvari"
+
+
+ref:
+  GRCh38:
+    fa: "/data/DATA/Reference/human/GRCh38.p13/GRCh38.p13.genome.fa"
+
+regions:
+  GRCh38:
+    Tier1_SV: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV.bed
+    Tier1_SV_exclude_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_exclude_RM.bed
+    Tier1_SV_exclude_SD: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_exclude_SD.bed
+    Tier1_SV_exclude_SR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_exclude_SR.bed
+    Tier1_SV_exclude_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_exclude_STR.bed
+    Tier1_SV_exclude_VNTR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_exclude_VNTR.bed
+    Tier1_SV_include_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_include_RM.bed
+    Tier1_SV_include_SD: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_include_SD.bed
+    Tier1_SV_include_SR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_include_SR.bed
+    Tier1_SV_include_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_include_STR.bed
+    Tier1_SV_include_VNTR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV_include_VNTR.bed
+    Tier1_Small: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small.bed
+    Tier1_Small_exclude_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_exclude_RM.bed
+    Tier1_Small_exclude_SD: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_exclude_SD.bed
+    Tier1_Small_exclude_SR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_exclude_SR.bed
+    Tier1_Small_exclude_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_exclude_STR.bed
+    Tier1_Small_exclude_VNTR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_exclude_VNTR.bed
+    Tier1_Small_include_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_include_RM.bed
+    Tier1_Small_include_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_Small_include_STR.bed
+    TierAll: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll.bed
+    TierAll_exclude_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_exclude_RM.bed
+    TierAll_exclude_SD: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_exclude_SD.bed
+    TierAll_exclude_SR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_exclude_SR.bed
+    TierAll_exclude_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_exclude_STR.bed
+    TierAll_exclude_VNTR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_exclude_VNTR.bed
+    TierAll_include_RM: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_include_RM.bed
+    TierAll_include_SD: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_include_SD.bed
+    TierAll_include_SR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_include_SR.bed
+    TierAll_include_STR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_include_STR.bed
+    TierAll_include_VNTR: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll_include_VNTR.bed
+
+#regions_patterns:
+
+variants:
+  GRCh38:
+    "SNV": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.SNV.v2.0.vcf.gz"
+    "Indel": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.Indel.v2.0.vcf.gz"
+    "DEL": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.DEL.v2.0.vcf.gz"
+    "INS": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.INS.v2.0.vcf.gz"
+comparison_tools:
+  SV: truvari
+  Small: happy
+threads:
+  default: 1
+  truvari: 24
+
+
+
+
+
+  # happy = "/data/home/pengjia/miniconda3/envs/happy/bin/hap.py"
+  #truvari = "/data/home/pengjia/miniconda3/envs/truvari/bin/truvari"

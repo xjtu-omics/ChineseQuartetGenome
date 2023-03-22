@@ -5,6 +5,11 @@ in this project have been approved as standard reference materials by
 the [State Administration for Market Regulation in China](https://www.samr.gov.cn/). In this repository,
 we provided high-quality genome and variant benchmarks for this quartet.
 
+## How to use the benchmark
+   We develop a [pipeline](/benchmarks/README.md) for benchmarking of variants in the genomes of 
+Chinese Quartet, enabling evaluation of the performance of 
+different sequencing technologies, variant calling algorithms, and pipelines. 
+
 ## Samples 
 There are four samples in Chinse Quartet, including father (LCL7), mother (LCL8), and two monozygotic 
 twin daughters (LCL5 and LCL6). This quartet family is from Taizhou in China. For more information of the quartet, 
@@ -19,7 +24,8 @@ community in order for to improve the evaluation of the technologies, pipelines,
 
 For genomic data, we generated 50x PacBio HiFi, 100x coverage of Oxford Nanopore, 30x coverage of ultra 
 long Oxford Nanopore (only for LCL5), 100x PacBio CLR, 100x 10x genomics linked reads and BioNano. 
-All raw data is available from public, if you want to use genomic data in this study, please fell free to contact with us.
+All raw data is available from public, if you want to use genomic data in this study, please download it from 
+[The Quartet Data Portal](https://chinese-quartet.org/#/data/download/quartet-genomics).
 ## Assembly 
 * Details are available at [github](/docs/assm_stat.md)
 * Data from two monozygotic twin daughters were merged for assembly.
