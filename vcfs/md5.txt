@@ -1,0 +1,4 @@
+4395b8497b0e673196ddfe03b6591704  ChineseQuartet.CSV.release.v2.0.vcf.gz
+de3e3c66ab490a93288800c180cc6876  ChineseQuartet.CSV.release.v2.0.vcf.gz.tbi
+f5001b32ec8147c67f4ed77b6dc54283  ChineseQuartet.merged.somatic_denovo.filter_repeat.non_redundancy.sort.release.v2.0.vcf.gz
+ee650a9404f684944f760b5cad8e0696  ChineseQuartet.merged.somatic_denovo.filter_repeat.non_redundancy.sort.release.v2.0.vcf.gz.tbi
