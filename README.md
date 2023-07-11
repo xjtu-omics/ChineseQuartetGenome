@@ -31,7 +31,7 @@ All raw data is available from public, if you want to use genomic data in this s
 * ONT reads were assembled with flye and shasta.
 * Pipeline for assembly is available at https://github.com/PengJia6/AssmPipe.
 * Pipeline for assembly evaluation is available at https://github.com/PengJia6/Postassm
-* Regions 
+
 
 ## Variant Benchmarks
 * Variants are discovery with Illumina reads, HiFi reads, and haplotyped-resolved assemblies.
