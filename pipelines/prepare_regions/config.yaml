@@ -26,6 +26,8 @@ regions_pattern:
     - "Tier1_SV"
     - "Tier1_Small"
     - "TierAll_include_SD"
+    - "TierAll_exclude_Tier1_Small"
+    - "TierAll_exclude_Tier1_SV"
     - "TierAll_exclude_SD"
     - "TierAll_include_STR"
     - "TierAll_exclude_STR"

@@ -56,15 +56,12 @@ If you want to use the variant benchmarks, please click [here](/benchmarks) to c
 ### 2 Variant benchmarks 
 * [Germline varaints](https://ngdc.cncb.ac.cn/gvm/getProjectDetail?project=GVM000404)
 * [Complex SVs](vcfs/ChineseQuartet.CSV.release.v2.0.vcf.gz)
-* [_de novo_ mutation](/) 
-* [Putative somatic mutation]() 
+* [_de novo_ and putative somatic mutations](vcfs/ChineseQuartet.merged.somatic_denovo.filter_repeat.non_redundancy.sort.release.v2.0.vcf.gz) 
 ## Contributions 
 
 * Software developers are encouraged to benchmark their software using our samples and data.
 * We also encourage the community to submit their assemblies and variant to improve the assemblies and variant benchmarks. 
 * Please contact with Peng Jia (pengjia@stu.xjtu.edu.cn)
-
-
 
 ## Contact
 

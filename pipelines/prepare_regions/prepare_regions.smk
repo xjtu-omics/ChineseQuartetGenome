@@ -48,7 +48,10 @@ for ref, info in config["regions_pattern"].items():
 rule all:
     input:
         targets,
-        dir_work + "regions.yaml"
+        dir_work + "regions.yaml",
+        dir_work + "GRCh38/GRCh38.Tier1_Small_exclude_allrepeat.bed",
+        dir_work + "GRCh38/GRCh38.Tier1_Small_exclude_allrepeat_element.bed",
+        dir_work+ "GRCh38/GRCh38.Tier1_SV_exclude_allrepeat.bed",
 
 
 # expand(dir_work + "{ref}/{ref}.{pattern}.bed",ref="GRCh38",pattern=config["regions_pattern"]["GRCh38"])
@@ -96,9 +99,8 @@ rule get_regions:
                 # shell("cp {input} {output}")
                 shell("{bedtools} sort -i  {input} |{bedtools} merge > {output}")
 
+
 # shell("rm -rf {output}_tmp ")
-
-
 # def get_base_bench(wildcards):
 #     if wildcards.base_region == "ALL":
 #         return config["regions"][wildcards.ref]["benchmark_regions"]
@@ -123,5 +125,31 @@ rule get_regions_pattern_exclude:
         exclude=dir_work + "{ref}/{ref}.{region}.bed"
     output:
         dir_work + "{ref}/{ref}.{region_base}_exclude_{region}.bed",
+    run:
+        shell("{bedtools} subtract -a {input.include} -b {input.exclude} |awk '{{ if ($3-$2>10) print }}' >{output}")
+
+rule clean_tire1:
+    input:
+        include=dir_work + "{ref}/{ref}.Tier1_Small.bed",
+        exclude=expand(dir_work + "{{ref}}/{{ref}}.{region}.bed",region=["SD", "RM", "SR", "VNTR", "STR"])
+    output:
+        dir_work + "{ref}/{ref}.Tier1_Small_exclude_allrepeat_element.bed",
+    run:
+        shell("{bedtools} subtract -a {input.include} -b {input.exclude} |awk '{{ if ($3-$2>10) print }}' >{output}")
+
+rule clean_tire2:
+    input:
+        include=dir_work + "{ref}/{ref}.Tier1_Small.bed",
+        exclude=expand(dir_work + "{{ref}}/{{ref}}.{region}.bed",region=["SD", "SR", "VNTR", "STR"])
+    output:
+        dir_work + "{ref}/{ref}.Tier1_Small_exclude_allrepeat.bed",
+    run:
+        shell("{bedtools} subtract -a {input.include} -b {input.exclude} |awk '{{ if ($3-$2>10) print }}' >{output}")
+rule clean_tire2_sv:
+    input:
+        include=dir_work + "{ref}/{ref}.Tier1_SV.bed",
+        exclude=expand(dir_work + "{{ref}}/{{ref}}.{region}.bed",region=["SD", "SR", "VNTR", "STR"])
+    output:
+        dir_work + "{ref}/{ref}.Tier1_SV_exclude_allrepeat.bed",
     run:
         shell("{bedtools} subtract -a {input.include} -b {input.exclude} |awk '{{ if ($3-$2>10) print }}' >{output}")

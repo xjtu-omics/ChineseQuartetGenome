@@ -1,6 +1,6 @@
 # ======================================================================================================================
 # Project: ChinseQuartetGenome
-# Script : read_phase.smk TODO check 
+# Script : read_phase.smk 
 # Author : Peng Jia
 # Date   :  2023/4/7
 # Email  : pengjia@stu.xjtu.edu.cn

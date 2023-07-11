@@ -31,7 +31,7 @@ regions_ids = []
 methods_ids = []
 version_ids = []
 comparison_tools = {
-    var_type: [] for var_type in ["DEL", "INS", "Indel", "SNV", "CSV"]
+    var_type: [] for var_type in ["DEL", "INS", "Indel", "SNV", "CSV", "SNVIndel", "SV"]
 }
 for var_type, info in config["comparison_tools"].items():
     if var_type in ["SV"]:
@@ -41,6 +41,7 @@ for var_type, info in config["comparison_tools"].items():
     if var_type in ["Small"]:
         comparison_tools["SNV"].append(info)
         comparison_tools["Indel"].append(info)
+        comparison_tools["SNVIndel"].append(info)
         continue
     comparison_tools[var_type].append(info)
 
@@ -62,9 +63,9 @@ for vcf_id, info in sample_info_data.iterrows():
 
         for r in config["regions"][info["reference_version"]]:
             regions_ids.append(r)
-            if ("SV" in r) and (info["var_type"] in ["DEL", "INS"]):
+            if ("SV" in r) and (info["var_type"] in ["SNV", "Indel"]):
                 continue
-            if ("Small" in r) and (info["var_type"] in ["SNV", "Indel"]):
+            if ("Small" in r) and (info["var_type"] in ["DEL", "INS"]):
                 continue
             this_regions.append(r)
     if info["reference_version"] not in sample_infos:
@@ -92,16 +93,16 @@ wildcard_constraints:
     ref="|".join(ref_ids),
     region="|".join(regions_ids),
     method="|".join(methods_ids),
-    var_type="|".join(["SNV", "Indel", "DEL", "CSV", "INV", "INS"])
+    var_type="|".join(["SNV", "Indel", "DEL", "CSV", "INV", "INS", "SNVIndel", "SV"])
 
 
-def get_region_input_from_input_config(wildcards):
-    return config["regions"][wildcards.ref][wildcards.region]
+# def get_region_input_from_input_config(wildcards):
+#     return config["regions"][wildcards.ref][wildcards.region]
 
 
 rule get_regions:
     input:
-        get_region_input_from_input_config
+        lambda wildcards: config["regions"][wildcards.ref][wildcards.region]
     output:
         dir_work + "benchmarks_file/{ref}.{region}.bed"
     threads: config["threads"]["default"]
@@ -112,22 +113,27 @@ rule get_regions:
             shell("cp {input} {output}")
 
 
-def get_benchmark_vcf_input(wildcards):
-    return config["variants"][wildcards.ref][wildcards.var_type]
+# def get_benchmark_vcf_input(wildcards):
+#     return config["variants"][wildcards.ref][wildcards.var_type]
 
 
 rule get_vcf_in_this_regions:
     input:
         bed=dir_work + "benchmarks_file/{ref}.{region}.bed",
-        vcf=get_benchmark_vcf_input
+        vcf=lambda wildcards: config["variants"][wildcards.ref][wildcards.var_type],
+        vcf_idx=lambda wildcards: config["variants"][wildcards.ref][wildcards.var_type] + ".tbi",
+    # vcf_idx=get_benchmark_vcf_input+".gz"
     output:
-        vcf=dir_work + "benchmarks_file/{ref}.{region}.{region}.{var_type}.vcf.gz"
+        vcf=dir_work + "benchmarks_file/{ref}.{region}.{var_type}.vcf.gz"
     threads: config["threads"]["default"]
     run:
         if wildcards.var_type in ["DEL", "INS", "CSV", "INV"]:
             overlap_ratio = float(paras["SV_overlap_ratio"])
+            size_tolerate_region_boundary = int(paras["size_tolerate_region_boundary_SV"])
         else:
             overlap_ratio = float(paras["Small_overlap_ratio"])
+            size_tolerate_region_boundary = int(paras["size_tolerate_region_boundary_Small"])
+
         vcf = pysam.VariantFile(f"{input.vcf}")
         chroms_lens = {i: vcf.header.contigs[i].length for i in vcf.header.contigs.keys()}
         anno_pots_bn = {i: np.zeros(j) for i, j in chroms_lens.items()}
@@ -137,34 +143,31 @@ rule get_vcf_in_this_regions:
             start, end = int(start), int(end)
             anno_pots_bn[chrom][start:end + 1] = 1
         vcf_new = pysam.VariantFile(f"{output}",mode="w",header=vcf.header)
+
         for rec in vcf.fetch():
-            if rec.contig not in anno_pots_bn: continue
+            if rec.contig not in anno_pots_bn:
+                continue
             if anno_pots_bn[rec.contig][rec.pos:rec.stop + 1].mean() >= overlap_ratio:
                 vcf_new.write(rec)
         vcf.close()
         vcf_new.close()
-
-
-def get_query_vcf_input(wildcards):
-    return sample_infos[wildcards.ref][wildcards.sample][wildcards.var_type][wildcards.method]
-
-
-# config["variants"][wildcards.ref][wildcards.var_type]
 
 
 rule get_query_vcf_in_this_regions:
     input:
         bed=dir_work + "benchmarks_file/{ref}.{region}.bed",
-        vcf=get_query_vcf_input,
+        vcf=lambda wildcards: sample_infos[wildcards.ref][wildcards.sample][wildcards.var_type][wildcards.method],
     # vcf_idx=get_benchmark_vcf_input+".tbi"
     output:
         vcf=dir_work + "results/{ref}.{sample}.{var_type}.{method}.{region}/{ref}.{sample}.{var_type}.{method}.{region}.vcf.gz"
     threads: config["threads"]["default"]
     run:
-        if wildcards.var_type in ["DEL", "INS", "CSV", "INV"]:
+        if wildcards.var_type in ["DEL", "INS", "CSV", "INV", "SV"]:
             overlap_ratio = float(paras["SV_overlap_ratio"])
+            size_tolerate_region_boundary = int(paras["size_tolerate_region_boundary_SV"])
         else:
             overlap_ratio = float(paras["Small_overlap_ratio"])
+            size_tolerate_region_boundary = int(paras["size_tolerate_region_boundary_Small"])
         vcf = pysam.VariantFile(f"{input.vcf}")
         chroms_lens = {i: vcf.header.contigs[i].length for i in vcf.header.contigs.keys()}
         anno_pots_bn = {i: np.zeros(j) for i, j in chroms_lens.items()}
@@ -173,13 +176,24 @@ rule get_query_vcf_in_this_regions:
             if chrom not in anno_pots_bn: continue
             start, end = int(start), int(end)
             anno_pots_bn[chrom][start:end + 1] = 1
+        my_header = vcf.header
+        my_header.add_line(f'##INFO=<ID=Border.{size_tolerate_region_boundary},Number=1,Type=String,Description="Is this mutation occurring at the region boundary?.">')
         vcf_new = pysam.VariantFile(f"{output}",mode="w",header=vcf.header)
         for rec in vcf.fetch():
             if rec.contig not in anno_pots_bn: continue
-            if anno_pots_bn[rec.contig][rec.pos:rec.stop + 1].mean() >= overlap_ratio:
-                vcf_new.write(rec)
+            rec.info[f"Border.{size_tolerate_region_boundary}"] = "No"
+            # if anno_pots_bn[rec.contig][rec.pos:rec.stop + 1].mean() ==1:
+            # print(rec.pos - size_tolerate_region_boundary,rec.stop + size_tolerate_region_boundary)
+            if anno_pots_bn[rec.contig][rec.pos - size_tolerate_region_boundary: \
+                    rec.stop + size_tolerate_region_boundary].mean() <= 0:
+                continue
+            elif anno_pots_bn[rec.contig][rec.pos - size_tolerate_region_boundary: \
+                    rec.stop + size_tolerate_region_boundary].mean() < 1:
+                rec.info[f"Border.{size_tolerate_region_boundary}"] = "Yes"
+            vcf_new.write(rec)
         vcf.close()
         vcf_new.close()
+
 
 rule merge_all_res:
     input:

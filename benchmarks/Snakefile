@@ -17,4 +17,4 @@ include: "rules/small_happy.smk"
 
 rule target:
     input:
-        dir_work + run_name + ".metric.csv"
+        dir_work + run_name + ".metric.csv",
