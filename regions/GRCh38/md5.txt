@@ -1,0 +1,11 @@
+b8a8668cf29fc45d3db4029a058c700d  GRCh38.RepeatMasker.bed.gz
+aaf85d72d5e5b2b42c5b70e6254cb3e9  GRCh38.RepeatMasker.bed.gz.tbi
+d133dac38b1c9caee9c84f10fd38622c  GRCh38.SD.bed.gz.tbi
+19fe9844fe30891e4f17c0a8d0e56066  GRCh38.SegmentalDuplications.bed.gz
+d133dac38b1c9caee9c84f10fd38622c  GRCh38.SegmentalDuplications.bed.gz.tbi
+a191ae0776f45264e5a7246de739b1b6  GRCh38.SimpleRepeats.bed.gz
+3dbe82095b73dc9b6e84ba12fe49fcc0  GRCh38.SimpleRepeats.bed.gz.tbi
+9d16a03f31032dde02270ddadfe76fb7  GRCh38.STR.bed.gz
+9096de86019f56d05bb89d13c12319f4  GRCh38.STR.bed.gz.tbi
+e2486620b8c721d4535ac145af9c20ba  GRCh38.VNTR.bed.gz
+297e6d6c295e764e300351969ef8b955  GRCh38.VNTR.bed.gz.tbi

@@ -1,0 +1,6 @@
+ab42e6cbf9381829ec7051e70c2b95b8  ChineseQuartet.twin.germline.GRCh38.diploid.region.bed.gz
+e3c50e05577b3690c0ac435c4c412e67  ChineseQuartet.twin.germline.GRCh38.diploid.region.bed.gz.tbi
+f80b1b42501434680a4bfcbcd8f5f9d0  ChineseQuartet.twin.germline.GRCh38.Small_Tier1_draft.v2.1.bed.gz
+35afe5a4a20ba60f2b3701cf93ba7650  ChineseQuartet.twin.germline.GRCh38.Small_Tier1_draft.v2.1.bed.gz.tbi
+bbc5d0bd9e87eaa266f13202765d4d13  ChineseQuartet.twin.germline.GRCh38.SV_Tier1_draft.v2.1.bed.gz
+d40f8d2fbb7089286fd652fa2a30a668  ChineseQuartet.twin.germline.GRCh38.SV_Tier1_draft.v2.1.bed.gz.tbi

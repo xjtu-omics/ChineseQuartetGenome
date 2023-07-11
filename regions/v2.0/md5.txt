@@ -1,0 +1,10 @@
+5b8b19148843c5085631649443aaa5fa  ChineseQuartet.twin.abnormal.mat.bed.gz
+e0a58b7e16cef1f0929ed1fe49b852c8  ChineseQuartet.twin.abnormal.pat.bed.gz
+7711f67d2c0f8abab3ff0043dadf99ad  ChineseQuartet.twin.germline.GRCh38.benchmark_region.v2.0.bed.gz
+21ef808c47286b6fda7a63341470dac6  ChineseQuartet.twin.germline.GRCh38.benchmark_region.v2.0.bed.gz.tbi
+1fbbeecaa0af135a7d6e827a15b2bd61  ChineseQuartet.twin.germline.GRCh38.small_Tier1.v2.0.bed.gz
+62df4e750ec84b713f2be3215ef418dd  ChineseQuartet.twin.germline.GRCh38.small_Tier1.v2.0.bed.gz.tbi
+738297d964dbb8f6dcac8de35fbc081b  ChineseQuartet.twin.germline.GRCh38.SV_Tier1.v2.0.bed.gz
+07dec3e42e7e91adf6aa1a68910e4036  ChineseQuartet.twin.germline.GRCh38.SV_Tier1.v2.0.bed.gz.tbi
+229265d600261700bc49b6e48eee773b  ChineseQuartet.twin.phased.GRCh38.bed.gz
+9ff9694f4ca2862473b2c545cb3ae2ab  ChineseQuartet.twin.phased.GRCh38.bed.gz.tbi
