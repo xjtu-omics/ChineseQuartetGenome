@@ -1,0 +1,5 @@
+sample_id	method	var_type	reference_version	path_vcf
+Tiwns	XJTU	DEL	GRCh38	/data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/ChineseQuartet.twin.germline.GRCh38.DEL.v2.0.vcf.gz
+Tiwns	XJTU	INS	GRCh38	/data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/ChineseQuartet.twin.germline.GRCh38.INS.v2.0.vcf.gz
+Tiwns	FDU	DEL	GRCh38	/data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/LCL5.high.confidence.sv_DEL.vcf
+Tiwns	FDU	INS	GRCh38	/data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/LCL5.high.confidence.sv_INS.vcf

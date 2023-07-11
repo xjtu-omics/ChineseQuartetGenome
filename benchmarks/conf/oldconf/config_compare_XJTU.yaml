@@ -1,0 +1,50 @@
+run_name: FDU_bench
+dir_work: "/data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/FDU_bench/"
+samples: "/data/home/pengjia/ChineseQuartetGenome/benchmarks/conf/samples_FDU_XJTU_Compare.tsv"
+
+paras:
+  SV_overlap_ratio: 0.8
+  Small_overlap_ratio: 1
+
+
+
+software:
+  "tabix": "/data/home/pengjia/miniconda3/envs/default/bin/tabix"
+  "bgzip": "/data/home/pengjia/miniconda3/envs/default/bin/bgzip"
+  "gzip": "gzip"
+  "hap_eval": "/data/home/pengjia/miniconda3/envs/happy/bin/hap.py"
+  "truvari": "/data/home/pengjia/miniconda3/envs/truvari/bin/truvari"
+
+
+ref:
+  GRCh38:
+    fa: "/data/DATA/Reference/human/GRCh38.p13/GRCh38.p13.genome.fa"
+
+regions:
+  GRCh38:
+    Tier1_SV: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.Tier1_SV.bed
+    TierAll: /data/home/pengjia/Project_Human_DATA/reNBT/03_benchmark_test/release_regions/GRCh38/GRCh38.TierAll.bed
+    Tier1_SV_FDU: /data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/FDU_XJTU_Tier1.bed
+    TierAll_SV_FDU: /data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/FDU_XJTU_benchmark.bed
+    FDU: /data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/Twins_benchmark_regions.bed
+#regions_patterns:
+
+variants:
+  GRCh38:
+#    "SNV": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.SNV.v2.0.vcf.gz"
+#    "Indel": "/data/home/pengjia/Project_Human_DATA/reNBT/02_variants/release/ChineseQuartet.twin.germline.GRCh38.Indel.v2.0.vcf.gz"
+    "DEL": /data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/LCL5.high.confidence.sv_DEL.vcf
+    "INS": /data/home/pengjia/Project_Human_DATA/reNBT2/02_compare_FDU/LCL5.high.confidence.sv_INS.vcf
+comparison_tools:
+  SV: truvari
+  Small: happy
+threads:
+  default: 1
+  truvari: 2
+
+
+
+
+
+  # happy = "/data/home/pengjia/miniconda3/envs/happy/bin/hap.py"
+  #truvari = "/data/home/pengjia/miniconda3/envs/truvari/bin/truvari"
