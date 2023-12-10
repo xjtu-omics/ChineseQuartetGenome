@@ -46,7 +46,7 @@ All raw data is available from public, if you want to use genomic data in this s
 ## Usage of variant benchmarks
 If you want to use the variant benchmarks, please click [here](/benchmarks) to check the pipeline we provided.
 ## Citation
-  Jia P, Dong L, Yang X, Wang B, Wang T, Lin J, Wang S, Zhao X, Xu T, Che Y, et al: Haplotype-resolved assemblies and variant benchmark of a Chinese Quartet. bioRxiv 2022:2022.2009.2008.504083. [PDF](https://www.biorxiv.org/content/10.1101/2022.09.08.504083v1.full.pdf)
+  Jia P, Dong L, Yang X, Wang B, Wang T, Lin J, Wang S, Zhao X, Xu T, Che Y, et al: Haplotype-resolved assemblies and variant benchmark of a Chinese Quartet. Genome Biol 24, 277 (2023). https://doi.org/10.1186/s13059-023-03116-3. [PDF](https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-023-03116-3.pdf)
 
 ## Download the latest release 
 
