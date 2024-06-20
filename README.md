@@ -63,7 +63,7 @@ If you want to use the variant benchmarks, please click [here](/benchmarks) to c
 * We also encourage the community to submit their assemblies and variant to improve the assemblies and variant benchmarks. 
 * Please contact with Peng Jia (pengjia@stu.xjtu.edu.cn)
 
-## Contact
+## Contact                 
 
 * Kai Ye (kaiye@xjtu.edu.cn)
-* Peng Jia (pengjia@stu.xjtu.edu.cn)
+* Peng Jia (pengjia@xjtu.edu.cn; pengjia1110@163.com)
